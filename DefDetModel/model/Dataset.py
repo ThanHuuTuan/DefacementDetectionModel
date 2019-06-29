@@ -11,11 +11,10 @@ import numpy as np
 class Dataset:
 
     def get(self):
-        data_root=pathlib.Path("E:\DATA\DefacedAndUndefacedWebsitesRepresentativeImages")
+        data_root=pathlib.Path("E:\DATA\DATASETS\DefacedAndUndefacedWebsitesRepresentativeImages")
         all_image_paths = list(data_root.glob('*/*'))
         all_image_paths = [str(path) for path in all_image_paths]
         random.shuffle(all_image_paths)
-        image_count=len(all_image_paths)
         label_names = sorted(item.name for item in data_root.glob('*/') if item.is_dir())
         label_to_index = dict((name, index) for index,name in enumerate(label_names))
         all_image_labels = [label_to_index[pathlib.Path(path).parent.name] for path in all_image_paths]

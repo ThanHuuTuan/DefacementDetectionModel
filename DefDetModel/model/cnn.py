@@ -136,8 +136,6 @@ batch_size=32
 
 saver = tf.train.Saver()
 
-
-
 with tf.Session() as sess:
     dset=Dataset()
     image_count=dset.getNumExamples()
